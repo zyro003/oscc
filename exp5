@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+
+int main()
+{
+    int shmid;
+    char *str;
+
+    shmid = shmget(1234, 100, 0666 | IPC_CREAT);
+    str = (char *)shmat(shmid, NULL, 0);
+
+    printf("Enter message: ");
+    scanf("%s", str);
+
+    printf("Message from shared memory: %s\n", str);
+
+    shmdt(str);
+
+    return 0;
+}
