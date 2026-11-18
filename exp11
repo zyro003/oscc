@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char f[10][20], name[20];
+    int n=0,c,i,found;
+
+    printf("1. Create File\n2. Search File\n3. Delete File\nEnter choice: ");
+    scanf("%d",&c);
+
+    if(c==1)
+    {
+        if(n==10) return 0;
+        printf("Enter file name: ");
+        scanf("%19s",name);
+        strcpy(f[n++],name);
+        printf("File created successfully\n");
+    }
+    else if(c==2 || c==3)
+    {
+        printf("Enter file name: ");
+        scanf("%19s",name);
+        found=0;
+
+        for(i=0;i<n;i++)
+            if(strcmp(f[i],name)==0)
+            {
+                found=1;
+                if(c==2) printf("File found\n");
+                else
+                {
+                    for(int j=i;j<n-1;j++)
+                        strcpy(f[j],f[j+1]);
+                    n--;
+                    printf("File deleted successfully\n");
+                }
+                break;
+            }
+
+        if(!found) printf("File not found\n");
+    }
+    else printf("Invalid choice\n");
+
+    return 0;
+}
