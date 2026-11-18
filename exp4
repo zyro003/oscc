@@ -1,0 +1,104 @@
+FCFS:
+n = int(input("Enter number of processes: "))
+bt = []
+
+print("Enter burst time for each process:")
+for i in range(n):
+    bt.append(int(input(f"P{i+1}: ")))
+
+wt = [0]*n
+tat = [0]*n
+
+for i in range(1, n):
+    wt[i] = wt[i-1] + bt[i-1]
+
+for i in range(n):
+    tat[i] = wt[i] + bt[i]
+
+print("\nProcess\tBT\tWT\tTAT")
+for i in range(n):
+    print(f"P{i+1}\t{bt[i]}\t{wt[i]}\t{tat[i]}")
+
+............................................................
+
+PRIORITY SCHEDULING:
+n = int(input("Enter number of processes: "))
+p, bt, pr = [], [], []
+
+for i in range(n):
+    p.append(i+1)
+    bt.append(int(input(f"\nEnter burst time for P{i+1}: ")))
+    pr.append(int(input(f"Enter priority for P{i+1}: ")))
+
+a = sorted(zip(pr, bt, p))
+pr, bt, p = zip(*a)
+
+wt = [0]*n
+tat = [0]*n
+
+for i in range(1, n):
+    wt[i] = wt[i-1] + bt[i-1]
+
+for i in range(n):
+    tat[i] = wt[i] + bt[i]
+
+print("\nProcess\tBT\tPriority\tWT\tTAT")
+for i in range(n):
+    print(f"P{p[i]}\t{bt[i]}\t{pr[i]}\t\t{wt[i]}\t{tat[i]}")
+
+..............................................................
+Round Robin Scheduling:
+n = int(input("Enter number of processes: "))
+bt = []
+
+print("Enter burst time for each process:")
+for i in range(n):
+    bt.append(int(input(f"P{i+1}: ")))
+
+q = int(input("Enter time quantum: "))
+rem = bt.copy()
+wt = [0]*n
+time = 0
+
+while any(rem):
+    for i in range(n):
+        if rem[i] > 0:
+            if rem[i] > q:
+                time += q
+                rem[i] -= q
+            else:
+                time += rem[i]
+                wt[i] = time - bt[i]
+                rem[i] = 0
+
+tat = [wt[i]+bt[i] for i in range(n)]
+
+print("\nProcess\tBT\tWT\tTAT")
+for i in range(n):
+    print(f"P{i+1}\t{bt[i]}\t{wt[i]}\t{tat[i]}")
+
+.............................................................
+SJF – Shortest Job First: 
+n = int(input("Enter number of processes: "))
+bt, p = [], []
+
+print("Enter burst time for each process:")
+for i in range(n):
+    p.append(i+1)
+    bt.append(int(input(f"P{i+1}: ")))
+
+a = sorted(zip(bt, p))
+bt, p = zip(*a)
+
+wt = [0]*n
+tat = [0]*n
+
+for i in range(1, n):
+    wt[i] = wt[i-1] + bt[i-1]
+
+for i in range(n):
+    tat[i] = wt[i] + bt[i]
+
+print("\nProcess\tBT\tWT\tTAT")
+for i in range(n):
+    print(f"P{p[i]}\t{bt[i]}\t{wt[i]}\t{tat[i]}")
