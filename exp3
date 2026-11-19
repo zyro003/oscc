@@ -1,3 +1,4 @@
+EXPERIMENT 3: Thread Creation and Synchronization Using pthread Library
 #include <stdio.h>
 #include <pthread.h>
 
