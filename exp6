@@ -1,3 +1,4 @@
+EXPERIMENT 6: Process Synchronization Using Semaphores
 #include <stdio.h>
 #include <pthread.h>
 #include <semaphore.h>
