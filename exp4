@@ -1,3 +1,4 @@
+EXPERIMENT 4: CPU Scheduling Algorithms – FCFS,SJF,RR,PS
 FCFS:
 n = int(input("Enter number of processes: "))
 bt = []
