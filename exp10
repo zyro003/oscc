@@ -1,3 +1,4 @@
+EXPERIMENT 10: Simulating Thrashing in Virtual Memory
 #include <stdio.h>
 
 int main()
