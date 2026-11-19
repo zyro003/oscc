@@ -38,5 +38,50 @@ int main()
     }
     printf("SSTF = %d\n", total);
 
+// SCAN (move towards 199 first)
+    pos = head;
+    total = 0;
+
+    for (i = 0; i < n; i++)
+        if (a[i] >= head)
+        {
+            total += abs(a[i] - pos);
+            pos = a[i];
+        }
+
+    total += abs(199 - pos);
+    pos = 199;
+
+    for (i = n - 1; i >= 0; i--)
+        if (a[i] < head)
+        {
+            total += abs(a[i] - pos);
+            pos = a[i];
+        }
+    printf("SCAN = %d\n", total);
+
+    // C-SCAN (move towards 199 first)
+    pos = head;
+    total = 0;
+
+    for (i = 0; i < n; i++)
+        if (a[i] >= head)
+        {
+            total += abs(a[i] - pos);
+            pos = a[i];
+        }
+
+    total += abs(199 - pos);
+    total += 199;  // Jump from 199 to 0
+    pos = 0;
+
+    for (i = 0; i < n; i++)
+        if (a[i] < head)
+        {
+            total += abs(a[i] - pos);
+            pos = a[i];
+        }
+    printf("C-SCAN = %d\n", total);
+
     return 0;
 }
