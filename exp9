@@ -1,3 +1,5 @@
+EXPERIMENT 9: Multithreading with Synchronization Using Python
+1. Theory
 import threading
 
 counter = 0
