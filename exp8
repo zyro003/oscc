@@ -1,3 +1,4 @@
+EXPERIMENT 8: Page Replacement Algorithms – FIFO, LRU and Optimal
 #include <stdio.h>
 
 int main()
