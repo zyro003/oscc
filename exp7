@@ -1,3 +1,4 @@
+EXPERIMENT 7: Deadlock Avoidance Using Banker's Algorithm
 #include <stdio.h>
 
 int main()
