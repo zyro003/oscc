@@ -1,3 +1,4 @@
+EXPERIMENT 12: Disk Scheduling Algorithms – FCFS, SSTF, SCAN and C-SCAN
 #include <stdio.h>
 #include <stdlib.h>
 
